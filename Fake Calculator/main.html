@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Crazy Calculator</title>
+  <style>
+    .container {
+    display: flex;
+    background-color: pink;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    }
+    .box {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ebe7d6;
+    box-shadow: 5px 5px 0px 0px rgb(113,113,113);
+    }
+    #inputValue {
+    padding: 25px;
+    text-align: right;
+    border-radius: 10px;
+    border: none;
+    background-color: #d6d8d1;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: #3c4423;
+    text-shadow: 1px 1px 0px rgba(29,29,29,0.5);;
+    font-weight: bold;
+    outline: none;
+    box-shadow: 5px 5px 0px 0px rgb(113,113,113);
+    }
+    .button-container {
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+    }
+    .buttons {
+    margin: 5px;
+    padding: 15px;
+    width: 25%;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 5px 5px 0px 0px rgb(113,113,113);
+    }
+    #equals {
+    width: 90%;
+    padding: 20px;
+    }
+    .buttons:active {
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5),-2px -2px 2px 0px rgba(255,255,255,0.5);
+    font-weight: bold;
+    transform: scale(0.95);
+    transition: 0.1s ease;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+
+      <div class="display-box">
+        <input type="text" id="inputValue">
+      </div>
+
+      <div class="button-container">
+        <button class="buttons" onclick="press(1)">1</button>
+        <button class="buttons" onclick="press(2)">2</button>
+        <button class="buttons" onclick="press(3)">3</button>
+        <button class="buttons" onclick="press('*')">x</button>
+      </div>
+
+      <div class="button-container">
+        <button class="buttons" onclick="press(4)">4</button>
+        <button class="buttons" onclick="press(5)">5</button>
+        <button class="buttons" onclick="press(6)">6</button>
+        <button class="buttons" onclick="press('/')">÷</button>
+      </div>
+
+      <div class="button-container">
+        <button class="buttons" onclick="press(7)">7</button>
+        <button class="buttons" onclick="press(8)">8</button>
+        <button class="buttons" onclick="press(9)">9</button>
+        <button class="buttons" onclick="press('-')">-</button>
+      </div>
+
+      <div class="button-container">
+        <button class="buttons" onclick="erase()">CE</button>
+        <button class="buttons" onclick="press('00')">00</button>
+        <button class="buttons" onclick="press(0)">0</button>
+        <button class="buttons" onclick="press('+')">+</button>
+      </div>
+      <button class="buttons" id="equals" onclick="equal()">=</button>
+
+    </div>
+  </div>
+
+
+  <script>
+    //let (inputValue) is the id of the input text
+    let inputValue = document.getElementById("inputValue");
+
+    //You can use any name other than expression for this let
+    let button = "";
+
+    //number bottons&for plus divide times minus
+    function press(num) {
+    button += num;
+    inputValue.value = button;
+    }
+
+    //equal button,used to evaluate the answer inside the inputValue input
+    function equal() {
+    button = eval(button);
+    inputValue.value = "miss you bebe ghorl";
+
+    }
+
+    //to remove everything inside the inputValue input
+    function erase() {
+    button = '';
+    inputValue.value = button;
+    }
+
+
+  </script>
+</body>
+</html>
